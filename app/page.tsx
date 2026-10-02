@@ -8,5 +8,16 @@ import { Contact } from "@/components/home/Contact";
 import { LocalBusinessJsonLd } from "@/components/home/LocalBusinessJsonLd";
 
 export default function HomePage() {
-  return <main><LocalBusinessJsonLd /><Hero /><MenuSection /><Promotions /><About /><WhyChooseUs /><Testimonials /><Contact /></main>;
+  return (
+    <main>
+      <LocalBusinessJsonLd />
+      <Hero />
+      <MenuSection />
+      <Promotions />
+      <About />
+      <WhyChooseUs />
+      <Testimonials />
+      <Contact />
+    </main>
+  );
 }

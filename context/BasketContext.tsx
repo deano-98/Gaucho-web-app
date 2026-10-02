@@ -1,6 +1,13 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import type { BasketItem } from "@/types/basket";
 import { calculateBasketTotal, makeLineId } from "@/lib/basket";
 
@@ -9,7 +16,9 @@ interface BasketContextValue {
   hydrated: boolean;
   itemCount: number;
   subtotal: number;
-  addItem: (item: Omit<BasketItem, "lineId" | "unitPrice"> & { unitPrice: number }) => void;
+  addItem: (
+    item: Omit<BasketItem, "lineId" | "unitPrice"> & { unitPrice: number },
+  ) => void;
   removeItem: (lineId: string) => void;
   setQuantity: (lineId: string, quantity: number) => void;
   clearBasket: () => void;
@@ -37,27 +46,67 @@ export function BasketProvider({ children }: { children: React.ReactNode }) {
     if (hydrated) localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
   }, [items, hydrated]);
 
-  const addItem = useCallback((incoming: Omit<BasketItem, "lineId" | "unitPrice"> & { unitPrice: number }) => {
-    const lineId = makeLineId(incoming);
-    setItems((current) => {
-      const existing = current.find((item) => item.lineId === lineId);
-      if (existing) return current.map((item) => item.lineId === lineId ? { ...item, quantity: Math.min(50, item.quantity + incoming.quantity) } : item);
-      return [...current, { ...incoming, lineId }];
-    });
-  }, []);
+  const addItem = useCallback(
+    (
+      incoming: Omit<BasketItem, "lineId" | "unitPrice"> & {
+        unitPrice: number;
+      },
+    ) => {
+      const lineId = makeLineId(incoming);
+      setItems((current) => {
+        const existing = current.find((item) => item.lineId === lineId);
+        if (existing)
+          return current.map((item) =>
+            item.lineId === lineId
+              ? {
+                  ...item,
+                  quantity: Math.min(50, item.quantity + incoming.quantity),
+                }
+              : item,
+          );
+        return [...current, { ...incoming, lineId }];
+      });
+    },
+    [],
+  );
 
-  const removeItem = useCallback((lineId: string) => setItems((current) => current.filter((item) => item.lineId !== lineId)), []);
-  const setQuantity = useCallback((lineId: string, quantity: number) => {
-    if (quantity <= 0) return removeItem(lineId);
-    setItems((current) => current.map((item) => item.lineId === lineId ? { ...item, quantity: Math.min(50, quantity) } : item));
-  }, [removeItem]);
+  const removeItem = useCallback(
+    (lineId: string) =>
+      setItems((current) => current.filter((item) => item.lineId !== lineId)),
+    [],
+  );
+  const setQuantity = useCallback(
+    (lineId: string, quantity: number) => {
+      if (quantity <= 0) return removeItem(lineId);
+      setItems((current) =>
+        current.map((item) =>
+          item.lineId === lineId
+            ? { ...item, quantity: Math.min(50, quantity) }
+            : item,
+        ),
+      );
+    },
+    [removeItem],
+  );
   const clearBasket = useCallback(() => setItems([]), []);
 
-  const value = useMemo(() => ({
-    items, hydrated, itemCount: items.reduce((sum, item) => sum + item.quantity, 0), subtotal: calculateBasketTotal(items), addItem, removeItem, setQuantity, clearBasket
-  }), [items, hydrated, addItem, removeItem, setQuantity, clearBasket]);
+  const value = useMemo(
+    () => ({
+      items,
+      hydrated,
+      itemCount: items.reduce((sum, item) => sum + item.quantity, 0),
+      subtotal: calculateBasketTotal(items),
+      addItem,
+      removeItem,
+      setQuantity,
+      clearBasket,
+    }),
+    [items, hydrated, addItem, removeItem, setQuantity, clearBasket],
+  );
 
-  return <BasketContext.Provider value={value}>{children}</BasketContext.Provider>;
+  return (
+    <BasketContext.Provider value={value}>{children}</BasketContext.Provider>
+  );
 }
 
 export function useBasket() {

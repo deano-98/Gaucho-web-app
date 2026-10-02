@@ -11,10 +11,10 @@ export const products: Product[] = [
     flavours: [
       { id: "classic", label: "Classic", required: true },
       { id: "spicy", label: "Spicy", required: true },
-      { id: "bbq", label: "BBQ", required: true }
+      { id: "bbq", label: "BBQ", required: true },
     ],
     featured: true,
-    active: true
+    active: true,
   },
   {
     id: "wings-30",
@@ -26,9 +26,9 @@ export const products: Product[] = [
     flavours: [
       { id: "classic", label: "Classic", required: true },
       { id: "spicy", label: "Spicy", required: true },
-      { id: "bbq", label: "BBQ", required: true }
+      { id: "bbq", label: "BBQ", required: true },
     ],
-    active: true
+    active: true,
   },
   {
     id: "chicken-wingless",
@@ -40,15 +40,15 @@ export const products: Product[] = [
     sizes: [
       { id: "small", label: "Small", price: 6.5 },
       { id: "medium", label: "Medium", price: 7.25 },
-      { id: "large", label: "Large", price: 8 }
+      { id: "large", label: "Large", price: 8 },
     ],
     flavours: [
       { id: "classic", label: "Classic", required: true },
       { id: "spicy", label: "Spicy", required: true },
-      { id: "bbq", label: "BBQ", required: true }
+      { id: "bbq", label: "BBQ", required: true },
     ],
     featured: true,
-    active: true
+    active: true,
   },
   {
     id: "chicken-winged",
@@ -60,14 +60,14 @@ export const products: Product[] = [
     sizes: [
       { id: "small", label: "Small", price: 8 },
       { id: "medium", label: "Medium", price: 8.75 },
-      { id: "large", label: "Large", price: 9.5 }
+      { id: "large", label: "Large", price: 9.5 },
     ],
     flavours: [
       { id: "classic", label: "Classic", required: true },
       { id: "spicy", label: "Spicy", required: true },
-      { id: "bbq", label: "BBQ", required: true }
+      { id: "bbq", label: "BBQ", required: true },
     ],
-    active: true
+    active: true,
   },
   {
     id: "cake-box",
@@ -80,9 +80,9 @@ export const products: Product[] = [
       { id: "peach", label: "Peach", required: true },
       { id: "chocolate-mousse", label: "Chocolate Mousse", required: true },
       { id: "black-forest", label: "Black Forest", required: true },
-      { id: "mint", label: "Mint", required: true }
+      { id: "mint", label: "Mint", required: true },
     ],
-    active: true
+    active: true,
   },
   {
     id: "cheesecake-slice",
@@ -93,9 +93,9 @@ export const products: Product[] = [
     price: 5,
     flavours: [
       { id: "vanilla", label: "Vanilla", required: true },
-      { id: "banana", label: "Banana", required: true }
+      { id: "banana", label: "Banana", required: true },
     ],
-    active: true
+    active: true,
   },
   {
     id: "plain-bun",
@@ -104,7 +104,7 @@ export const products: Product[] = [
     description: "A simple side to complete your braai meal.",
     image: "/images/chicken/bun-placeholder.svg",
     price: 0.5,
-    active: true
+    active: true,
   },
   {
     id: "combo-2x15-wings",
@@ -113,8 +113,10 @@ export const products: Product[] = [
     description: "Two 15-wing portions at a promotional price.",
     image: "/images/wings/wings-placeholder.svg",
     price: 15,
-    comboComponents: [{ productId: "wings-15", quantity: 2, optionType: "flavour" }],
-    active: true
+    comboComponents: [
+      { productId: "wings-15", quantity: 2, optionType: "flavour" },
+    ],
+    active: true,
   },
   {
     id: "combo-large-chicken-15-wings",
@@ -124,10 +126,15 @@ export const products: Product[] = [
     image: "/images/chicken/chicken-placeholder.svg",
     price: 16,
     comboComponents: [
-      { productId: "chicken-wingless", quantity: 1, optionType: "size", fixedOptionId: "large" },
-      { productId: "wings-15", quantity: 1, optionType: "flavour" }
+      {
+        productId: "chicken-wingless",
+        quantity: 1,
+        optionType: "size",
+        fixedOptionId: "large",
+      },
+      { productId: "wings-15", quantity: 1, optionType: "flavour" },
     ],
-    active: true
+    active: true,
   },
   {
     id: "combo-2-large-chickens-15-wings",
@@ -137,10 +144,15 @@ export const products: Product[] = [
     image: "/images/chicken/chicken-placeholder.svg",
     price: 23,
     comboComponents: [
-      { productId: "chicken-wingless", quantity: 2, optionType: "size", fixedOptionId: "large" },
-      { productId: "wings-15", quantity: 1, optionType: "flavour" }
+      {
+        productId: "chicken-wingless",
+        quantity: 2,
+        optionType: "size",
+        fixedOptionId: "large",
+      },
+      { productId: "wings-15", quantity: 1, optionType: "flavour" },
     ],
-    active: true
+    active: true,
   },
   {
     id: "combo-large-chicken-cake-box",
@@ -150,10 +162,15 @@ export const products: Product[] = [
     image: "/images/chicken/chicken-placeholder.svg",
     price: 17,
     comboComponents: [
-      { productId: "chicken-wingless", quantity: 1, optionType: "size", fixedOptionId: "large" },
-      { productId: "cake-box", quantity: 1, optionType: "flavour" }
+      {
+        productId: "chicken-wingless",
+        quantity: 1,
+        optionType: "size",
+        fixedOptionId: "large",
+      },
+      { productId: "cake-box", quantity: 1, optionType: "flavour" },
     ],
-    active: true
+    active: true,
   },
   {
     id: "combo-large-chicken-2-cheesecake",
@@ -163,10 +180,15 @@ export const products: Product[] = [
     image: "/images/chicken/chicken-placeholder.svg",
     price: 18,
     comboComponents: [
-      { productId: "chicken-wingless", quantity: 1, optionType: "size", fixedOptionId: "large" },
-      { productId: "cheesecake-slice", quantity: 2, optionType: "flavour" }
+      {
+        productId: "chicken-wingless",
+        quantity: 1,
+        optionType: "size",
+        fixedOptionId: "large",
+      },
+      { productId: "cheesecake-slice", quantity: 2, optionType: "flavour" },
     ],
-    active: true
+    active: true,
   },
   {
     id: "combo-15-wings-cheesecake",
@@ -177,9 +199,9 @@ export const products: Product[] = [
     price: 12,
     comboComponents: [
       { productId: "wings-15", quantity: 1, optionType: "flavour" },
-      { productId: "cheesecake-slice", quantity: 1, optionType: "flavour" }
+      { productId: "cheesecake-slice", quantity: 1, optionType: "flavour" },
     ],
-    active: true
+    active: true,
   },
   {
     id: "combo-15-wings-cake-box",
@@ -190,11 +212,14 @@ export const products: Product[] = [
     price: 17,
     comboComponents: [
       { productId: "wings-15", quantity: 1, optionType: "flavour" },
-      { productId: "cake-box", quantity: 1, optionType: "flavour" }
+      { productId: "cake-box", quantity: 1, optionType: "flavour" },
     ],
-    active: true
-  }
+    active: true,
+  },
 ];
 
-export const activeProducts = products.filter((product) => product.active !== false);
-export const getProduct = (id: string) => products.find((product) => product.id === id);
+export const activeProducts = products.filter(
+  (product) => product.active !== false,
+);
+export const getProduct = (id: string) =>
+  products.find((product) => product.id === id);

@@ -10,11 +10,43 @@
   --font-sans: Arial, Helvetica, sans-serif;
 }
 
-:root { color-scheme: light; }
-html { scroll-behavior: smooth; }
-body { margin: 0; background: #fff8ed; color: #171717; font-family: var(--font-sans); }
-* { box-sizing: border-box; }
-button, a, input, select { -webkit-tap-highlight-color: transparent; }
-:focus-visible { outline: 3px solid #ffc928; outline-offset: 3px; }
-::selection { background: #ffc928; color: #171717; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+:root {
+  color-scheme: light;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: #fff8ed;
+  color: #171717;
+  font-family: var(--font-sans);
+}
+* {
+  box-sizing: border-box;
+}
+button,
+a,
+input,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+:focus-visible {
+  outline: 3px solid #ffc928;
+  outline-offset: 3px;
+}
+::selection {
+  background: #ffc928;
+  color: #171717;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

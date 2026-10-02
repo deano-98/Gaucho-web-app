@@ -10,7 +10,10 @@ import { siteConfig } from "@/data/site-config";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: { default: "Braai Chicken | Fresh. Juicy. Local.", template: "%s | Braai Chicken" },
+  title: {
+    default: "Braai Chicken | Fresh. Juicy. Local.",
+    template: "%s | Braai Chicken",
+  },
   description: siteConfig.description,
   alternates: { canonical: "/" },
   openGraph: {
@@ -19,12 +22,34 @@ export const metadata: Metadata = {
     url: siteConfig.url,
     siteName: siteConfig.name,
     type: "website",
-    images: [{ url: "/images/branding/og-placeholder.svg", width: 1200, height: 630, alt: "Braai Chicken" }]
+    images: [
+      {
+        url: "/images/branding/og-placeholder.svg",
+        width: 1200,
+        height: 630,
+        alt: "Braai Chicken",
+      },
+    ],
   },
   robots: { index: true, follow: true },
-  icons: { icon: "/images/branding/favicon.svg" }
+  icons: { icon: "/images/branding/favicon.svg" },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body><BasketProvider><Navbar />{children}<Footer /></BasketProvider><Analytics /><SpeedInsights /><AnalyticsScripts /></body></html>;
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="en">
+      <body>
+        <BasketProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </BasketProvider>
+        <Analytics />
+        <SpeedInsights />
+        <AnalyticsScripts />
+      </body>
+    </html>
+  );
 }

@@ -2,4 +2,50 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
-export function Hero() { return <section className="relative overflow-hidden bg-charcoal text-white"><div className="mx-auto grid min-h-[calc(100vh-4rem)] max-w-7xl items-center gap-10 px-5 py-14 md:grid-cols-2 md:py-20"><div className="relative z-10"><p className="font-black uppercase tracking-[.25em] text-gold">Real chicken. Real flavour.</p><h1 className="mt-4 font-display text-5xl font-black uppercase leading-[.92] sm:text-6xl lg:text-7xl">Freshly braaied chicken <span className="text-orange">& wings.</span></h1><p className="mt-6 max-w-xl text-base leading-7 text-white/75">Smoky, juicy and freshly braaied over charcoal. Great taste, great value, right in your neighbourhood.</p><div className="mt-8 flex flex-wrap gap-3"><Link href="/menu" className="inline-flex items-center gap-2 rounded-full bg-orange px-6 py-3 font-black">View Our Menu <ArrowRight size={18} /></Link><a href={`https://wa.me/${siteConfig.whatsappNumber.replace(/\D/g, "")}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 font-black"><MessageCircle size={18} /> Start Your Order</a></div></div><div className="relative aspect-square overflow-hidden rounded-[2rem] bg-white/5 shadow-2xl"><Image src="/images/chicken/chicken-placeholder.svg" alt="Charcoal-braaied chicken placeholder — replace with actual food photography" fill priority sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" /></div></div></section>; }
+export function Hero() {
+  return (
+    <section className="relative overflow-hidden bg-charcoal text-white">
+      <div className="mx-auto grid min-h-[calc(100vh-4rem)] max-w-7xl items-center gap-10 px-5 py-14 md:grid-cols-2 md:py-20">
+        <div className="relative z-10">
+          <p className="font-black uppercase tracking-[.25em] text-gold">
+            Real chicken. Real flavour.
+          </p>
+          <h1 className="mt-4 font-display text-5xl font-black uppercase leading-[.92] sm:text-6xl lg:text-7xl">
+            Freshly braaied chicken{" "}
+            <span className="text-orange">& wings.</span>
+          </h1>
+          <p className="mt-6 max-w-xl text-base leading-7 text-white/75">
+            Smoky, juicy and freshly braaied over charcoal. Great taste, great
+            value, right in your neighbourhood.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href="/menu"
+              className="inline-flex items-center gap-2 rounded-full bg-orange px-6 py-3 font-black"
+            >
+              View Our Menu <ArrowRight size={18} />
+            </Link>
+            <a
+              href={`https://wa.me/${siteConfig.whatsappNumber.replace(/\D/g, "")}`}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 font-black"
+            >
+              <MessageCircle size={18} /> Start Your Order
+            </a>
+          </div>
+        </div>
+        <div className="relative aspect-square overflow-hidden rounded-[2rem] bg-white/5 shadow-2xl">
+          <Image
+            src="/images/chicken/chicken-placeholder.svg"
+            alt="Charcoal-braaied chicken placeholder — replace with actual food photography"
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -12,14 +12,17 @@ export function buildWhatsAppMessage(input: {
 }) {
   const itemLines = input.items
     .map((item) => {
-      const options = [item.sizeLabel, item.flavourLabel].filter(Boolean).join(" / ");
+      const options = [item.sizeLabel, item.flavourLabel]
+        .filter(Boolean)
+        .join(" / ");
       return `${item.name}${options ? ` — ${options}` : ""}\nQuantity: ${item.quantity}\nPrice: ${formatCurrency(item.lineTotal)}`;
     })
     .join("\n\n");
 
-  const location = input.fulfilment.method === "PICKUP"
-    ? input.fulfilment.pickupLocation
-    : input.fulfilment.deliveryAddress;
+  const location =
+    input.fulfilment.method === "PICKUP"
+      ? input.fulfilment.pickupLocation
+      : input.fulfilment.deliveryAddress;
 
   return [
     "Hello Braai Chicken! I would like to place an order.",
@@ -38,7 +41,7 @@ export function buildWhatsAppMessage(input: {
     "",
     `Total: ${formatCurrency(input.total)}`,
     "",
-    "Please confirm my order. Thank you!"
+    "Please confirm my order. Thank you!",
   ].join("\n");
 }
 

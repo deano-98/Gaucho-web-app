@@ -14,7 +14,7 @@ export const siteConfig = {
   social: {
     instagram: "", // MANUAL INPUT REQUIRED
     facebook: "", // MANUAL INPUT REQUIRED
-    tiktok: "" // MANUAL INPUT REQUIRED
+    tiktok: "", // MANUAL INPUT REQUIRED
   },
   pickupLocations: {
     WESTGATE: {
@@ -23,24 +23,24 @@ export const siteConfig = {
     },
     AVONDALE: {
       label: "Avondale",
-      instructions: "" // MANUAL INPUT REQUIRED
-    }
+      instructions: "", // MANUAL INPUT REQUIRED
+    },
   },
   delivery: {
     enabled: false, // MANUAL INPUT REQUIRED: Set true only after zones and fees are configured.
     fee: 0,
     zones: [] as string[],
-    note: "Delivery fees and availability are confirmed by the business."
+    note: "Delivery fees and availability are confirmed by the business.",
   },
   analytics: {
     gaMeasurementId: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "",
     clarityProjectId: process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID || "",
-    enabled: process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === "true"
+    enabled: process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === "true",
   },
   order: {
     currency: "USD",
     currencySymbol: "$",
     rateLimitMax: Number(process.env.ORDER_RATE_LIMIT_MAX || 8),
-    rateLimitWindowMs: Number(process.env.ORDER_RATE_LIMIT_WINDOW_MS || 60000)
-  }
+    rateLimitWindowMs: Number(process.env.ORDER_RATE_LIMIT_WINDOW_MS || 60000),
+  },
 } as const;

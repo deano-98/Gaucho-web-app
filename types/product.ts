@@ -1,4 +1,5 @@
-export type ProductCategory = "chicken" | "wings" | "dessert" | "side" | "combo";
+export type ProductCategory =
+  "chicken" | "wings" | "dessert" | "side" | "combo";
 export type Flavour = string;
 export type ChickenSize = "small" | "medium" | "large";
 
