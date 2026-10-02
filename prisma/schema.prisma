@@ -1,0 +1,70 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum OrderStatus {
+  PENDING_WHATSAPP
+  CONFIRMED
+  CANCELLED
+  FULFILLED
+}
+
+enum EmailStatus {
+  PENDING
+  SENT
+  FAILED
+}
+
+enum FulfilmentMethod {
+  PICKUP
+  DELIVERY
+}
+
+model Order {
+  id             String            @id @default(cuid())
+  orderNumber    String            @unique
+  idempotencyKey String            @unique
+  fullName       String
+  phone          String
+  email          String
+  fulfilment     FulfilmentMethod
+  pickupLocation String?
+  deliveryAddress String?
+  subtotal       Decimal           @db.Decimal(10, 2)
+  deliveryFee    Decimal           @db.Decimal(10, 2)
+  total          Decimal           @db.Decimal(10, 2)
+  status         OrderStatus       @default(PENDING_WHATSAPP)
+  emailStatus    EmailStatus       @default(PENDING)
+  emailError     String?
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+  items          OrderItem[]
+
+  @@index([createdAt])
+  @@index([status])
+}
+
+model OrderItem {
+  id             String   @id @default(cuid())
+  orderId        String
+  productId      String
+  productName    String
+  quantity       Int
+  unitPrice      Decimal  @db.Decimal(10, 2)
+  lineTotal      Decimal  @db.Decimal(10, 2)
+  flavourId      String?
+  flavourLabel   String?
+  sizeId         String?
+  sizeLabel      String?
+  variantId      String?
+  variantLabel   String?
+  configuration  Json?
+  order          Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@index([orderId])
+}
