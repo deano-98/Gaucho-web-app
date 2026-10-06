@@ -33,23 +33,24 @@ export function ProductCard({ product }: { product: Product }) {
     window.setTimeout(() => setAdded(false), 1600);
   };
   return (
-    <article className="overflow-hidden rounded-3xl border border-black/10 bg-white shadow-sm">
-      <div className="relative aspect-[4/3] bg-charcoal">
+    <article className="overflow-hidden rounded-3xl border border-white/10 bg-cream shadow-sm">
+      <div className="relative aspect-video bg-charcoal">
         <Image
           src={product.image}
           alt={`${product.name} — replace placeholder with actual food photography`}
           fill
           sizes="(max-width: 768px) 100vw, 33vw"
           className="object-cover"
+          priority
         />
       </div>
-      <div className="p-5">
-        <div className="flex items-start justify-between gap-4">
+      <div className="p-4">
+        <div className="flex items-start justify-between gap-2">
           <div>
-            <h3 className="font-display text-2xl font-black uppercase">
+            <h3 className="font-display text-xl font-black uppercase">
               {product.name}
             </h3>
-            <p className="mt-1 text-sm leading-6 text-slate-600">
+            <p className="mt-1 text-sm leading-5 text-white/70">
               {product.description}
             </p>
           </div>
@@ -58,12 +59,12 @@ export function ProductCard({ product }: { product: Product }) {
           </span>
         </div>
         {product.sizes && (
-          <label className="mt-4 block text-xs font-black uppercase tracking-wide">
+          <label className="mt-3 block text-xs font-black uppercase tracking-wide">
             Size
             <select
               value={size}
               onChange={(e) => setSize(e.target.value)}
-              className="mt-1 w-full rounded-xl border border-black/10 bg-cream px-3 py-2.5 text-sm"
+              className="mt-1 w-full rounded-xl border border-white/15 bg-charcoal px-3 py-2 text-sm"
             >
               <option value="">Choose size</option>
               {product.sizes.map((s) => (
@@ -76,12 +77,12 @@ export function ProductCard({ product }: { product: Product }) {
           </label>
         )}
         {product.flavours && (
-          <label className="mt-4 block text-xs font-black uppercase tracking-wide">
+          <label className="mt-3 block text-xs font-black uppercase tracking-wide">
             Flavour
             <select
               value={flavour}
               onChange={(e) => setFlavour(e.target.value)}
-              className="mt-1 w-full rounded-xl border border-black/10 bg-cream px-3 py-2.5 text-sm"
+              className="mt-1 w-full rounded-xl border border-white/15 bg-charcoal px-3 py-2 text-sm"
             >
               <option value="">Choose flavour</option>
               {product.flavours.map((f) => (
@@ -97,7 +98,7 @@ export function ProductCard({ product }: { product: Product }) {
             price == null || (product.flavours?.length ? !flavour : false)
           }
           onClick={add}
-          className="mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-charcoal px-5 py-3 font-black text-white transition hover:bg-orange disabled:cursor-not-allowed disabled:opacity-40"
+          className="mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-orange px-4 py-2.5 font-black text-white transition hover:bg-orange disabled:cursor-not-allowed disabled:opacity-40"
         >
           {added ? (
             <>

@@ -101,7 +101,7 @@ export function OrderForm() {
             <input
               data-clarity-mask="true"
               {...register("customer.fullName")}
-              className="mt-1 w-full rounded-xl border border-black/10 bg-white px-4 py-3"
+              className="mt-1 w-full rounded-xl border border-white/15 bg-charcoal px-4 py-3 text-white"
               autoComplete="name"
             />{" "}
             <ErrorText message={errors.customer?.fullName?.message} />
@@ -111,7 +111,7 @@ export function OrderForm() {
             <input
               data-clarity-mask="true"
               {...register("customer.phone")}
-              className="mt-1 w-full rounded-xl border border-black/10 bg-white px-4 py-3"
+              className="mt-1 w-full rounded-xl border border-white/15 bg-charcoal px-4 py-3 text-white"
               autoComplete="tel"
               inputMode="tel"
             />{" "}
@@ -122,7 +122,7 @@ export function OrderForm() {
             <input
               data-clarity-mask="true"
               {...register("customer.email")}
-              className="mt-1 w-full rounded-xl border border-black/10 bg-white px-4 py-3"
+              className="mt-1 w-full rounded-xl border border-white/15 bg-charcoal px-4 py-3 text-white"
               autoComplete="email"
               inputMode="email"
             />{" "}
@@ -135,7 +135,7 @@ export function OrderForm() {
           Fulfilment
         </legend>
         <div className="mt-4 grid grid-cols-2 gap-3">
-          <label className="rounded-xl border border-black/10 bg-white p-4 font-bold">
+          <label className="rounded-xl border border-white/15 bg-charcoal p-4 font-bold">
             <input
               type="radio"
               value="PICKUP"
@@ -143,7 +143,7 @@ export function OrderForm() {
             />{" "}
             <span className="ml-2">Pickup</span>
           </label>
-          <label className="rounded-xl border border-black/10 bg-white p-4 font-bold">
+          <label className="rounded-xl border border-white/15 bg-charcoal p-4 font-bold">
             <input
               type="radio"
               value="DELIVERY"
@@ -157,7 +157,7 @@ export function OrderForm() {
             Pickup location
             <select
               {...register("fulfilment.pickupLocation")}
-              className="mt-1 w-full rounded-xl border border-black/10 bg-white px-4 py-3"
+              className="mt-1 w-full rounded-xl border border-white/15 bg-charcoal px-4 py-3 text-white"
             >
               <option value="WESTGATE">Westgate</option>
               <option value="AVONDALE">Avondale</option>
@@ -170,7 +170,7 @@ export function OrderForm() {
               data-clarity-mask="true"
               {...register("fulfilment.deliveryAddress")}
               rows={4}
-              className="mt-1 w-full rounded-xl border border-black/10 bg-white px-4 py-3"
+              className="mt-1 w-full rounded-xl border border-white/15 bg-charcoal px-4 py-3 text-white"
               placeholder="Enter your delivery address"
             />
             <ErrorText message={deliveryAddressError} />
@@ -196,7 +196,7 @@ export function OrderForm() {
       >
         {submitting ? "Creating order…" : "Place Order on WhatsApp"}
       </button>
-      <p className="text-center text-xs leading-5 text-slate-500">
+      <p className="text-center text-xs leading-5 text-white/60">
         Your order is created first. WhatsApp then opens with a prefilled
         message — please send it and wait for business confirmation.
       </p>

@@ -11,17 +11,18 @@ export function Navbar() {
   const links = [
     ["Home", "/"],
     ["Menu", "/menu"],
+    ["Promos", "#promos"],
     ["About", "/#about"],
     ["Contact", "/#contact"],
   ];
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-cream/95 backdrop-blur">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-cream/95 text-white backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
         <Link
           href="/"
           className="font-display text-2xl font-black uppercase tracking-tight"
         >
-          Braai <span className="text-orange">Chicken</span>
+          Gau<span className="text-orange">cho</span>
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
           {links.map(([label, href]) => (
@@ -46,7 +47,7 @@ export function Navbar() {
           <Link
             href="/basket"
             aria-label={`Basket with ${itemCount} items`}
-            className="relative rounded-full p-2 hover:bg-black/5"
+            className="relative rounded-full p-2 hover:bg-white/10"
           >
             <ShoppingBasket size={22} />
             {itemCount > 0 && (
@@ -65,7 +66,7 @@ export function Navbar() {
         </div>
       </div>
       {open && (
-        <nav className="border-t border-black/10 bg-cream px-5 py-4 md:hidden">
+        <nav className="border-t border-white/10 bg-cream px-5 py-4 text-white md:hidden">
           {links.map(([label, href]) => (
             <Link
               onClick={() => setOpen(false)}

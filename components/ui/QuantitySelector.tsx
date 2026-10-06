@@ -9,7 +9,7 @@ export function QuantitySelector({
   label: string;
 }) {
   return (
-    <div className="inline-flex items-center rounded-full border border-black/10 bg-white">
+    <div className="inline-flex items-center rounded-full border border-white/15 bg-charcoal">
       <button
         type="button"
         aria-label={`Decrease ${label}`}

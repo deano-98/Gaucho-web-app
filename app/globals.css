@@ -4,22 +4,22 @@
   --color-charcoal: #171717;
   --color-orange: #f15a24;
   --color-gold: #ffc928;
-  --color-cream: #fff8ed;
+  --color-cream: #242424;
   --color-whatsapp: #25d366;
   --font-display: "Arial Narrow", "Roboto Condensed", Arial, sans-serif;
   --font-sans: Arial, Helvetica, sans-serif;
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 }
 html {
   scroll-behavior: smooth;
 }
 body {
   margin: 0;
-  background: #fff8ed;
-  color: #171717;
+  background: #171717;
+  color: #fff8ed;
   font-family: var(--font-sans);
 }
 * {

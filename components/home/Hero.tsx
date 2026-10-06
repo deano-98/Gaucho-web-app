@@ -1,12 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, MessageCircle } from "lucide-react";
-import { siteConfig } from "@/data/site-config";
+import { ArrowRight } from "lucide-react";
+
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-charcoal text-white">
-      <div className="mx-auto grid min-h-[calc(100vh-4rem)] max-w-7xl items-center gap-10 px-5 py-14 md:grid-cols-2 md:py-20">
-        <div className="relative z-10">
+    <section className="relative isolate min-h-screen overflow-hidden bg-charcoal text-white">
+      <Image
+        src="/images/chicken/hero_2.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/25"
+      />
+      <div className="relative mx-auto flex min-h-screen max-w-7xl items-center px-5 py-24">
+        <div className="relative z-10 max-w-3xl">
           <p className="font-black uppercase tracking-[.25em] text-gold">
             Real chicken. Real flavour.
           </p>
@@ -23,27 +35,9 @@ export function Hero() {
               href="/menu"
               className="inline-flex items-center gap-2 rounded-full bg-orange px-6 py-3 font-black"
             >
-              View Our Menu <ArrowRight size={18} />
+              Menu <ArrowRight size={18} />
             </Link>
-            <a
-              href={`https://wa.me/${siteConfig.whatsappNumber.replace(/\D/g, "")}`}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 font-black"
-            >
-              <MessageCircle size={18} /> Start Your Order
-            </a>
           </div>
-        </div>
-        <div className="relative aspect-square overflow-hidden rounded-[2rem] bg-white/5 shadow-2xl">
-          <Image
-            src="/images/chicken/chicken-placeholder.svg"
-            alt="Charcoal-braaied chicken placeholder — replace with actual food photography"
-            fill
-            priority
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover"
-          />
         </div>
       </div>
     </section>

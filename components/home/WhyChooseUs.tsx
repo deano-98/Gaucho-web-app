@@ -23,13 +23,13 @@ export function WhyChooseUs() {
           {benefits.map(([n, t, d]) => (
             <article
               key={t}
-              className="rounded-3xl border border-black/10 bg-white p-6"
+              className="rounded-3xl border border-white/10 bg-cream p-6"
             >
               <span className="text-sm font-black text-orange">{n}</span>
               <h2 className="mt-8 font-display text-2xl font-black uppercase">
                 {t}
               </h2>
-              <p className="mt-2 text-sm leading-6 text-slate-600">{d}</p>
+              <p className="mt-2 text-sm leading-6 text-white/70">{d}</p>
             </article>
           ))}
         </div>

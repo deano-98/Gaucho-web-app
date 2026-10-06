@@ -19,7 +19,7 @@ function Confirmation() {
       <h1 className="mt-3 font-display text-4xl font-black uppercase">
         Thanks for choosing local.
       </h1>
-      <p className="mt-4 text-slate-600">
+      <p className="mt-4 text-white/70">
         Your order number is <strong>{order}</strong>. WhatsApp still needs to
         be sent and the business must confirm your order.
       </p>

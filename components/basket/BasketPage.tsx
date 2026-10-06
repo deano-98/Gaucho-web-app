@@ -29,12 +29,12 @@ export function BasketPage() {
         <h1 className="mt-3 font-display text-4xl font-black uppercase">
           Nothing here yet.
         </h1>
-        <p className="mt-4 text-slate-600">
+        <p className="mt-4 text-white/70">
           Pick a chicken, wings or dessert and your order will appear here.
         </p>
         <Link
           href="/menu"
-          className="mt-7 inline-block rounded-full bg-charcoal px-6 py-3 font-black text-white"
+          className="mt-7 inline-block rounded-full bg-orange px-6 py-3 font-black text-white"
         >
           Browse the menu
         </Link>
@@ -50,7 +50,7 @@ export function BasketPage() {
           <h1 className="mt-2 font-display text-4xl font-black uppercase">
             Ready to order?
           </h1>
-          <div className="mt-6 rounded-3xl bg-white px-5">
+          <div className="mt-6 rounded-3xl border border-white/10 bg-cream px-5">
             {items.map((item) => (
               <BasketItem key={item.lineId} item={item} />
             ))}
@@ -60,7 +60,7 @@ export function BasketPage() {
             <strong className="text-xl">{formatCurrency(subtotal)}</strong>
           </div>
         </div>
-        <div className="rounded-3xl bg-white p-5 shadow-sm md:p-7">
+        <div className="rounded-3xl border border-white/10 bg-cream p-5 shadow-sm md:p-7">
           <OrderForm />
         </div>
       </div>

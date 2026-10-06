@@ -57,7 +57,7 @@ export function Promotions() {
       },
     }));
   return (
-    <section id="promotions" className="bg-white px-5 py-20">
+    <section id="promos" className="bg-charcoal px-5 py-20 text-white">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
@@ -81,14 +81,14 @@ export function Promotions() {
             return (
               <article
                 key={combo.id}
-                className="rounded-3xl border border-black/10 p-5"
+                className="rounded-3xl border border-white/10 bg-cream p-5"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <h3 className="font-display text-2xl font-black uppercase">
                       {combo.name}
                     </h3>
-                    <p className="mt-2 text-sm text-slate-600">
+                    <p className="mt-2 text-sm text-white/70">
                       {combo.description}
                     </p>
                   </div>
@@ -114,7 +114,7 @@ export function Promotions() {
                                 e.target.value,
                               )
                             }
-                            className="mt-2 w-full rounded-xl border border-black/10 bg-cream px-3 py-3 text-sm"
+                            className="mt-2 w-full rounded-xl border border-white/15 bg-charcoal px-3 py-3 text-sm text-white"
                           >
                             <option value="">
                               Choose {child.name} flavour
@@ -135,14 +135,14 @@ export function Promotions() {
                       {formatCurrency(combo.price ?? 0)}
                     </span>
                     {regular > (combo.price ?? 0) && (
-                      <span className="ml-2 text-xs text-slate-400 line-through">
+                      <span className="ml-2 text-xs text-white/50 line-through">
                         {formatCurrency(regular)}
                       </span>
                     )}
                   </div>
                   <button
                     onClick={() => add(combo.id)}
-                    className="rounded-full bg-charcoal px-4 py-2 text-sm font-black text-white"
+                    className="rounded-full bg-orange px-4 py-2 text-sm font-black text-white"
                   >
                     Add combo
                   </button>

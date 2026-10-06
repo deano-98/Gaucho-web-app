@@ -11,7 +11,7 @@ export function BasketItem({ item }: { item: BasketItemType }) {
   const product = getProduct(item.productId);
   if (!product) return null;
   return (
-    <div className="flex gap-4 border-b border-black/10 py-5">
+    <div className="flex gap-4 border-b border-white/10 py-5">
       <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl bg-charcoal">
         <Image
           src={product.image}
@@ -25,7 +25,7 @@ export function BasketItem({ item }: { item: BasketItemType }) {
         <div className="flex justify-between gap-3">
           <div>
             <h3 className="font-bold">{product.name}</h3>
-            <p className="mt-1 text-xs text-slate-500">
+            <p className="mt-1 text-xs text-white/60">
               {product.category === "combo"
                 ? Object.entries(item.comboOptions ?? {})
                     .flatMap(([productId, ids]) => {
@@ -51,7 +51,7 @@ export function BasketItem({ item }: { item: BasketItemType }) {
           <button
             onClick={() => removeItem(item.lineId)}
             aria-label={`Remove ${product.name}`}
-            className="text-slate-400 hover:text-red-600"
+            className="text-white/50 hover:text-red-400"
           >
             <Trash2 size={18} />
           </button>

@@ -13,7 +13,7 @@ export function MenuSection({ fullPage = false }: { fullPage?: boolean }) {
           <h3 className="font-display text-3xl font-black uppercase">
             {title}
           </h3>
-          <span className="text-sm text-slate-500">{items.length} options</span>
+          {/* <span className="text-sm text-slate-500">{items.length} options</span> */}
         </div>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {items.map((product) => (
@@ -28,7 +28,7 @@ export function MenuSection({ fullPage = false }: { fullPage?: boolean }) {
         {!fullPage && (
           <>
             <p className="font-black uppercase tracking-[.2em] text-orange">
-              The menu
+              menu
             </p>
             <h2 className="mt-2 max-w-3xl font-display text-4xl font-black uppercase md:text-5xl">
               Big braai flavour without the restaurant price tag.
