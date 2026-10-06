@@ -72,7 +72,7 @@ export const products: Product[] = [
     category: "dessert",
     name: "Small Cake Box",
     description: "A small box of cake made for a sweet finish.",
-    image: "/images/desserts/cake-placeholder.svg",
+    image: "/images/desserts/cake.jpg",
     price: 10,
     flavours: [
       { id: "peach", label: "Peach", required: true },
