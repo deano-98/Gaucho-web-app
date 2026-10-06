@@ -11,13 +11,13 @@ import { siteConfig } from "@/data/site-config";
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Braai Chicken | Fresh. Juicy. Local.",
-    template: "%s | Braai Chicken",
+    default: "Gaucho",
+    template: "%s | Gaucho",
   },
   description: siteConfig.description,
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Braai Chicken | Fresh. Juicy. Local.",
+    title: "Gaucho | Fresh. Juicy. Local.",
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         url: "/images/branding/og-placeholder.svg",
         width: 1200,
         height: 630,
-        alt: "Braai Chicken",
+        alt: "Gaucho",
       },
     ],
   },
