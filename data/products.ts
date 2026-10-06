@@ -118,7 +118,7 @@ export const products: Product[] = [
     price: 15,
     comboComponents: [
       {
-        productId: "chicken-wingless",
+        productId: "wingless-bird",
         quantity: 1,
         optionType: "size",
         fixedOptionId: "large",
@@ -136,7 +136,7 @@ export const products: Product[] = [
     price: 20,
     comboComponents: [
       {
-        productId: "chicken-wingless",
+        productId: "wingless-bird",
         quantity: 2,
         optionType: "size",
         fixedOptionId: "large",
@@ -172,7 +172,7 @@ export const products: Product[] = [
     price: 16,
     comboComponents: [
       {
-        productId: "chicken-wingless",
+        productId: "wingless-bird",
         quantity: 1,
         optionType: "size",
         fixedOptionId: "large",
@@ -208,7 +208,7 @@ export const products: Product[] = [
     price: 15,
     comboComponents: [
       {
-        productId: "chicken-wingless",
+        productId: "wingless-bird",
         quantity: 1,
         optionType: "size",
         fixedOptionId: "large",

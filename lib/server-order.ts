@@ -163,14 +163,18 @@ export function calculateComboRegularPrice(productId: string) {
   return roundMoney(
     product.comboComponents.reduce((sum, component) => {
       const child = getProduct(component.productId);
-      if (!child) return sum;
-      let unit = child.price ?? 0;
-      if (component.fixedOptionId && component.optionType === "size")
-        unit =
-          child.sizes?.find((s) => s.id === component.fixedOptionId)?.price ??
-          0;
-      if (component.fixedOptionId && component.optionType === "flavour")
-        unit = child.price ?? 0;
+      if (!child)
+        throw new Error(
+          `Combo contains invalid product: ${component.productId}`,
+        );
+      const unit =
+        component.fixedOptionId && component.optionType === "size"
+          ? child.sizes?.find((s) => s.id === component.fixedOptionId)?.price
+          : child.price;
+      if (unit == null)
+        throw new Error(
+          `Cannot calculate regular price for ${child.name} in ${product.name}.`,
+        );
       return sum + unit * component.quantity;
     }, 0),
   );

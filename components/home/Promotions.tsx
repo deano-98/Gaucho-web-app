@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { products } from "@/data/products";
 import { calculateComboRegularPrice } from "@/lib/server-order";
 import { formatCurrency } from "@/lib/format-currency";
@@ -77,7 +77,8 @@ export function Promotions() {
         <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {combos.map((combo) => {
             const regular = calculateComboRegularPrice(combo.id);
-            const saving = Math.max(0, regular - (combo.price ?? 0));
+            const comboPrice = combo.price ?? 0;
+            const saving = Math.max(0, regular - comboPrice);
             return (
               <article
                 key={combo.id}
@@ -92,9 +93,11 @@ export function Promotions() {
                       {combo.description}
                     </p>
                   </div>
-                  <span className="rounded-full bg-gold px-3 py-1 text-xs font-black">
-                    Save {formatCurrency(saving)}
-                  </span>
+                  {saving > 0 && (
+                    <span className="rounded-full bg-gold px-3 py-1 text-xs font-black">
+                      Save {formatCurrency(saving)}
+                    </span>
+                  )}
                 </div>
                 {(combo.comboComponents ?? [])
                   .filter((c) => !c.fixedOptionId && c.optionType)
@@ -132,9 +135,9 @@ export function Promotions() {
                 <div className="mt-5 flex items-center justify-between">
                   <div>
                     <span className="font-black text-orange">
-                      {formatCurrency(combo.price ?? 0)}
+                      {formatCurrency(comboPrice)}
                     </span>
-                    {regular > (combo.price ?? 0) && (
+                    {regular > comboPrice && (
                       <span className="ml-2 text-xs text-white/50 line-through">
                         {formatCurrency(regular)}
                       </span>
