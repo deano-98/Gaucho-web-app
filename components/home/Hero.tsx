@@ -15,7 +15,7 @@ export function Hero() {
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/25"
+        className="absolute inset-0 bg-linear-to-r from-black/80 via-black/55 to-black/25"
       />
       <div className="relative mx-auto flex min-h-screen max-w-7xl items-center px-5 py-24">
         <div className="relative z-10 max-w-3xl">
