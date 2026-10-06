@@ -9,9 +9,9 @@ export function About() {
           Good food. Local energy.
         </h2>
         <p className="mx-auto mt-5 max-w-2xl leading-8 text-white/70">
-          Braai Chicken is built around a simple idea: serve smoky, juicy
+          Gaucho is built around a simple idea: serve smoky, juicy
           charcoal-braaied chicken at a price that feels good for everyday
-          customers. We keep the experience friendly, straightforward and local
+          customers and families. We keep the experience friendly, straightforward and local
           — order, braai, collect, enjoy.
         </p>
       </div>

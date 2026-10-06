@@ -24,4 +24,20 @@ describe("basket calculations", () => {
         flavourId: "classic",
       }),
     ));
+  it("keeps combo selections as part of the basket line ID", () =>
+    expect(
+      makeLineId({
+        productId: "combo-wingless-bird-15-wings",
+        quantity: 1,
+        unitPrice: 15,
+        comboOptions: { "wings-15": ["spicy"] },
+      }),
+    ).not.toBe(
+      makeLineId({
+        productId: "combo-wingless-bird-15-wings",
+        quantity: 1,
+        unitPrice: 15,
+        comboOptions: { "wings-15": ["classic"] },
+      }),
+    ));
 });

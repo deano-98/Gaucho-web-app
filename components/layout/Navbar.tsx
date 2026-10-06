@@ -10,8 +10,8 @@ export function Navbar() {
   const { itemCount } = useBasket();
   const links = [
     ["Home", "/"],
-    ["Menu", "/menu"],
-    ["Promos", "#promos"],
+    ["Menu", "/#menu"],
+    ["Promos", "/#promos"],
     ["About", "/#about"],
     ["Contact", "/#contact"],
   ];

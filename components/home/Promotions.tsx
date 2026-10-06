@@ -13,24 +13,33 @@ export function Promotions() {
   const [selected, setSelected] = useState<
     Record<string, Record<string, string[]>>
   >({});
-  const needsOptions = (id: string) =>
-    products
-      .find((p) => p.id === id)
-      ?.comboComponents?.some((c) => !c.fixedOptionId && c.optionType);
   const add = (id: string) => {
     const p = products.find((x) => x.id === id);
-    if (!p?.price) return;
+    if (!p || p.price == null) return;
     const options = selected[id] ?? {};
-    if (needsOptions(id)) {
-      for (const c of p.comboComponents ?? [])
-        if (
-          !c.fixedOptionId &&
-          c.optionType &&
-          (options[c.productId]?.length ?? 0) < c.quantity
-        ) {
-          setMessage("Choose all combo flavours first.");
-          return;
-        }
+    for (const component of p.comboComponents ?? []) {
+      if (component.fixedOptionId || !component.optionType) continue;
+      const selectedOptions = options[component.productId] ?? [];
+      const availableOptions =
+        component.optionType === "flavour"
+          ? products.find((product) => product.id === component.productId)
+              ?.flavours
+          : products.find((product) => product.id === component.productId)
+              ?.sizes;
+      const choices = Array.from(
+        { length: component.quantity },
+        (_, index) => selectedOptions[index],
+      );
+      if (
+        choices.some(
+          (optionId) =>
+            !optionId ||
+            !availableOptions?.some((option) => option.id === optionId),
+        )
+      ) {
+        setMessage("Choose all combo options first.");
+        return;
+      }
     }
     addItem({
       productId: id,
@@ -47,15 +56,17 @@ export function Promotions() {
     index: number,
     value: string,
   ) =>
-    setSelected((current) => ({
-      ...current,
-      [comboId]: {
-        ...(current[comboId] ?? {}),
-        [productId]: Object.assign([...(current[comboId]?.[productId] ?? [])], {
-          [index]: value,
-        }),
-      },
-    }));
+    setSelected((current) => {
+      const options = [...(current[comboId]?.[productId] ?? [])];
+      options[index] = value;
+      return {
+        ...current,
+        [comboId]: {
+          ...(current[comboId] ?? {}),
+          [productId]: options,
+        },
+      };
+    });
   return (
     <section id="promos" className="bg-charcoal px-5 py-20 text-white">
       <div className="mx-auto max-w-7xl">
@@ -103,6 +114,10 @@ export function Promotions() {
                   .filter((c) => !c.fixedOptionId && c.optionType)
                   .map((c) => {
                     const child = products.find((p) => p.id === c.productId)!;
+                    const availableOptions =
+                      c.optionType === "flavour"
+                        ? child.flavours
+                        : child.sizes;
                     return (
                       <div key={c.productId} className="mt-4">
                         {Array.from({ length: c.quantity }).map((_, i) => (
@@ -120,11 +135,11 @@ export function Promotions() {
                             className="mt-2 w-full rounded-xl border border-white/15 bg-charcoal px-3 py-3 text-sm text-white"
                           >
                             <option value="">
-                              Choose {child.name} flavour
+                              Choose {child.name} {c.optionType}
                             </option>
-                            {child.flavours?.map((f) => (
-                              <option key={f.id} value={f.id}>
-                                {f.label}
+                            {availableOptions?.map((option) => (
+                              <option key={option.id} value={option.id}>
+                                {option.label}
                               </option>
                             ))}
                           </select>

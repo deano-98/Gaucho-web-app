@@ -33,7 +33,7 @@ export function BasketPage() {
           Pick a chicken, wings or dessert and your order will appear here.
         </p>
         <Link
-          href="/menu"
+          href="#menu"
           className="mt-7 inline-block rounded-full bg-orange px-6 py-3 font-black text-white"
         >
           Browse the menu

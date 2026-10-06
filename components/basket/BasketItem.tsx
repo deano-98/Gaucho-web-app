@@ -27,15 +27,35 @@ export function BasketItem({ item }: { item: BasketItemType }) {
             <h3 className="font-bold">{product.name}</h3>
             <p className="mt-1 text-xs text-white/60">
               {product.category === "combo"
-                ? Object.entries(item.comboOptions ?? {})
-                    .flatMap(([productId, ids]) => {
-                      const child = getProduct(productId);
-                      return ids.map(
-                        (id) =>
-                          child?.flavours?.find((f) => f.id === id)?.label ??
-                          id,
-                      );
-                    })
+                ? [
+                    ...(product.comboComponents ?? []).flatMap((component) => {
+                      const child = getProduct(component.productId);
+                      if (!child) return [];
+                      if (component.fixedOptionId) {
+                        const option =
+                          component.optionType === "size"
+                            ? child.sizes?.find(
+                                (size) => size.id === component.fixedOptionId,
+                              )
+                            : child.flavours?.find(
+                                (flavour) =>
+                                  flavour.id === component.fixedOptionId,
+                              );
+                        return option ? [`${child.name}: ${option.label}`] : [];
+                      }
+                      return (item.comboOptions?.[component.productId] ?? [])
+                        .slice(0, component.quantity)
+                        .map((id) => {
+                          const option =
+                            component.optionType === "size"
+                              ? child.sizes?.find((size) => size.id === id)
+                              : child.flavours?.find(
+                                  (flavour) => flavour.id === id,
+                                );
+                          return `${child.name}: ${option?.label ?? id}`;
+                        });
+                    }),
+                  ]
                     .join(", ")
                 : [
                     item.sizeId &&

@@ -9,8 +9,16 @@ const benefits = [
     "Great Value",
     "Straightforward portions and promos built around value.",
   ],
-  ["03", "Made with Care", "Thoughtful preparation from kitchen to handoff."],
-  ["04", "Support Local", "Your order helps a local Harare business grow."],
+  [
+    "03", 
+    "Great Flavour", 
+    "Your taste buds will thank you."
+  ],
+  [
+    "04", 
+    "Made with Care", 
+    "Thoughtful preparation from kitchen to handoff."
+  ]
 ];
 export function WhyChooseUs() {
   return (

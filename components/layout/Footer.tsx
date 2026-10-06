@@ -25,7 +25,13 @@ export function Footer() {
         <div>
           <h2 className="font-bold">Contact</h2>
           <p className="mt-3 text-sm text-white/70">
-            WhatsApp: {siteConfig.phone}
+            Phone:{" "}
+            <a
+              href={`tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`}
+              className="underline-offset-4 hover:underline"
+            >
+              {siteConfig.phone}
+            </a>
           </p>
           <p className="text-sm text-white/70">Email: {siteConfig.email}</p>
         </div>

@@ -114,7 +114,7 @@ export const products: Product[] = [
     category: "combo",
     name: "Wingless Bird + 15 Wings",
     description: "A large wingless bird plus 15 wings.",
-    image: "/images/chicken/chicken-placeholder.svg",
+    image: "/images/chicken/hero_2.jpg",
     price: 15,
     comboComponents: [
       {
@@ -132,7 +132,7 @@ export const products: Product[] = [
     category: "combo",
     name: "2 Large Wingless Birds + 15 Wings",
     description: "Two large wingless birds plus 15 wings.",
-    image: "/images/chicken/chicken-placeholder.svg",
+    image: "/images/chicken/hero_2.jpg",
     price: 20,
     comboComponents: [
       {
@@ -150,7 +150,7 @@ export const products: Product[] = [
     category: "combo",
     name: "Large Chicken + Cake Box",
     description: "Large chicken and a cake box.",
-    image: "/images/chicken/chicken-placeholder.svg",
+    image: "/images/chicken/hero_2.jpg",
     price: 20,
     comboComponents: [
       {
@@ -168,7 +168,7 @@ export const products: Product[] = [
     category: "combo",
     name: "Wingless Bird + Cake Box",
     description: "Wingless bird and a cake box.",
-    image: "/images/chicken/chicken-placeholder.svg",
+    image: "/images/chicken/hero_2.jpg",
     price: 16,
     comboComponents: [
       {
@@ -186,7 +186,7 @@ export const products: Product[] = [
     category: "combo",
     name: "Large Chicken + 2 Cheesecake Slices",
     description: "Large chicken with two cheesecake slices.",
-    image: "/images/chicken/chicken-placeholder.svg",
+    image: "/images/chicken/hero_2.jpg",
     price: 18,
     comboComponents: [
       {
@@ -204,7 +204,7 @@ export const products: Product[] = [
     category: "combo",
     name: "Wingless Bird + 2 Cheesecake Slices",
     description: "Wingless bird with two cheesecake slices.",
-    image: "/images/chicken/chicken-placeholder.svg",
+    image: "/images/chicken/hero_2.jpg",
     price: 15,
     comboComponents: [
       {
@@ -222,7 +222,7 @@ export const products: Product[] = [
     category: "combo",
     name: "15 Wings + Cheesecake Slice",
     description: "15 wings and one cheesecake slice.",
-    image: "/images/wings/wings-placeholder.svg",
+    image: "/images/wings/wings_2.jpg",
     price: 10,
     comboComponents: [
       { productId: "wings-15", quantity: 1, optionType: "flavour" },
@@ -235,7 +235,7 @@ export const products: Product[] = [
     category: "combo",
     name: "15 Wings + Cake Box",
     description: "15 wings and one small cake box.",
-    image: "/images/wings/wings-placeholder.svg",
+    image: "/images/wings/wings_2.jpg",
     price: 18,
     comboComponents: [
       { productId: "wings-15", quantity: 1, optionType: "flavour" },

@@ -3,14 +3,14 @@ import { siteConfig } from "@/data/site-config";
 export function Contact() {
   return (
     <section id="contact" className="px-5 py-20">
-      <div className="mx-auto max-w-7xl rounded-[2rem] bg-orange p-8 text-white md:p-12">
+      <div className="mx-auto max-w-7xl rounded-4xl bg-orange p-8 text-white md:p-12">
         <div className="grid gap-10 md:grid-cols-2">
           <div>
             <p className="font-black uppercase tracking-[.2em] text-gold">
               Contact
             </p>
             <h2 className="mt-3 font-display text-4xl font-black uppercase md:text-5xl">
-              Ready for a proper braai?
+              Ready for a proper meal?
             </h2>
             <p className="mt-4 max-w-xl text-white/80">
               Message us to confirm availability, pickup details or delivery
@@ -23,7 +23,13 @@ export function Contact() {
               <span>WhatsApp: {siteConfig.whatsappNumber}</span>
             </div>
             <div className="flex gap-3">
-              <Phone /> <span>Phone: {siteConfig.phone}</span>
+              <Phone aria-hidden="true" />
+              <a
+                href={`tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`}
+                className="underline-offset-4 hover:underline"
+              >
+                Phone: {siteConfig.phone}
+              </a>
             </div>
             <div className="flex gap-3">
               <MapPin /> <span>Pickup: Westgate & Avondale</span>

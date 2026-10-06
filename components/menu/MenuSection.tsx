@@ -39,7 +39,7 @@ export function MenuSection({ fullPage = false }: { fullPage?: boolean }) {
         {section("Wings", wings)}
         {section("Desserts", desserts)}
         {section("Sides", sides)}
-        {!fullPage && (
+        {/* {!fullPage && (
           <div className="mt-8">
             <a
               href="/menu"
@@ -48,7 +48,7 @@ export function MenuSection({ fullPage = false }: { fullPage?: boolean }) {
               See the full menu
             </a>
           </div>
-        )}
+        )} */}
       </div>
     </section>
   );

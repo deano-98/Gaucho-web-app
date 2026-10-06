@@ -32,7 +32,7 @@ export function Hero() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
-              href="/menu"
+              href="#menu"
               className="inline-flex items-center gap-2 rounded-full bg-orange px-6 py-3 font-black"
             >
               Menu <ArrowRight size={18} />
