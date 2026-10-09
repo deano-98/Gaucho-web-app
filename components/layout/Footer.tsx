@@ -6,10 +6,10 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-3">
         <div>
           <div className="font-display text-2xl font-black uppercase">
-            Braai <span className="text-orange">Chicken</span>
+            Gau<span className="text-orange">cho</span>
           </div>
           <p className="mt-3 max-w-sm text-sm text-white/70">
-            {siteConfig.tagline} Charcoal-braaied chicken, wings and desserts
+            {siteConfig.tagline} Charcoal-grilled chicken, wings and desserts
             made for local value.
           </p>
         </div>

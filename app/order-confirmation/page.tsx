@@ -17,7 +17,7 @@ function Confirmation() {
         Order created
       </p>
       <h1 className="mt-3 font-display text-4xl font-black uppercase">
-        Thanks for choosing local.
+        Thank you for choosing us.
       </h1>
       <p className="mt-4 text-white/70">
         Your order number is <strong>{order}</strong>. WhatsApp still needs to
