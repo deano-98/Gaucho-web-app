@@ -37,7 +37,7 @@ export function Footer() {
         </div>
       </div>
       <div className="mx-auto mt-10 max-w-7xl border-t border-white/10 pt-5 text-xs text-white/50">
-        © {new Date().getFullYear()} Braai Chicken. All rights reserved.
+        © {new Date().getFullYear()} Gaucho. All rights reserved.
       </div>
     </footer>
   );
